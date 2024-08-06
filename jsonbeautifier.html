@@ -1,0 +1,53 @@
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Beautifier - Transforma JSON en un Formato Claro y Agradable</title>
+    <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="recursos/css/site.css?v=MftKk_Dl6T7dEmsIjqGv2uBKatQlxWlkRm2f9VL-UFU">
+    <link href="recursos/multimedia/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="recursos/lib/jquery/dist/jquery.min.js"></script>
+    <script src="recursos/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="recursos/js/shared.js"></script>
+    <script src="recursos/js/jsonbeautifier.js"></script>
+</head>
+
+<body>
+    <header id="header-placeholder"></header>
+
+    <div class="container collapse" id="cuerpo-main">
+        <div class="text-center mb-4 text-yellow-100">
+            <h2>JSON Beautifier</h2>
+        </div>
+
+        <div id="msjAlert" role="alert" class="mt-1"></div>
+
+        <div class="row">
+            <div class="col-md-6 mt-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="ArrayEjemplo" class="form-label w-100">Json Original.</label>
+                    <button type="button" id="Runbeautifier" class="btn btn-outline-success d-flex">
+                        Procesar</button>
+                </div>
+                <textarea id="OriginalJson" rows="12" class="form-control mt-2"></textarea>
+            </div>
+
+            <div class="col-md-6 mt-2">
+                <div class="d-flex justify-content-between align-items-center">
+                    <label for="ArrayEjemplo" class="form-label w-100">Json Formateado.</label>
+                    <div class="d-flex">
+                        <button type="button" id="CleartextArea" class="btn btn-outline-danger">Limpiar</button>
+                        <button type="button" id="copyButton" class="btn btn-outline-primary ms-1">Copy</button>
+                    </div>
+                </div>
+                <textarea id="BeautifierJson" rows="12" class="form-control mt-2" disabled></textarea>
+            </div>
+        </div>
+    </div>
+
+    <footer id="footer-placeholder" class="footer text-muted"></footer>
+</body>
+
+
+</html>
