@@ -70,12 +70,12 @@ $("#exportBtn").click(async function () {
         try {
             var objson = ElectronicArray[i];
             let obj = {
-                "Correlativo": `${i + 1}`,
+              //  "Correlativo": `${i + 1}`,
                 "FechaEmision": objson.identificacion.fecEmi,
                 "NumeroUnicoComprobante": objson.identificacion.codigoGeneracion,
                 "NumeroComprobante": objson.identificacion.numeroControl,
                 "NumeroRegistro": objson.emisor.nrc,
-                "NumeroSerie": objson.selloRecibido || objson.respuestaHacienda.selloRecibido,
+              //  "NumeroSerie": objson.selloRecibido || objson.respuestaHacienda.selloRecibido,
                 "NIT": objson.emisor.nit,
                 "NombreProveedor": objson.emisor.nombre,
                 "ComprasExentaInterna": objson.resumen.totalExenta,
