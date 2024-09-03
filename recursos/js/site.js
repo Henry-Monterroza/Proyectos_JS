@@ -81,7 +81,7 @@ $("#exportBtn").click(async function () {
                 "ComprasExentaInterna": objson.resumen.totalExenta,
                 "ComprasGrabadasInterna": objson.resumen.totalGravada,
                 // "CreditoFiscal": 0.0,
-                "IVA": (objson.resumen.tributos.find(tributo => tributo.descripcion === "IVA") || {}).valor || "No IVA",
+                "IVA": (objson.resumen.tributos.find(tributo => tributo.codigo === "20") || {}).valor || "No IVA",
                 "SubTotal": objson.resumen.subTotal,
                 "TotalCompras": objson.resumen.montoTotalOperacion,
                 "ComprasSujetosExcluidos": objson.resumen.descuNoSuj
