@@ -1,0 +1,129 @@
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Retenciones</title>
+    <link rel="stylesheet" href="recursos/lib/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="recursos/css/site.css?v=MftKk_Dl6T7dEmsIjqGv2uBKatQlxWlkRm2f9VL-UFU">
+    <link href="recursos/multimedia/img/favicon.ico" rel="icon" type="image/x-icon" />
+    <script src="recursos/lib/jquery/dist/jquery.min.js"></script>
+    <script src="recursos/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="recursos/lib/xlsx/xlsx.full.min.js"></script>
+    <script src="recursos/js/shared.js"></script>
+    <script src="recursos/js/CalcularRetenciones.js"></script>
+</head>
+
+<body>
+    <header id="header-placeholder">
+    </header>
+
+
+    <div class="container collapse" id="cuerpo-main">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 class="mb-4 text-center text-yellow-100">Calculadora de Retenciones</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="filename">Salario :</label>
+                        <input id="Salary" type="text" class="form-control" placeholder="USD $" onkeypress="return OnlyNumbers(event)">
+
+                    </div>
+                    <div class="col-md-6">
+                        <button type="button" class="btn btn-outline-success mt-4 w-100" id="calcular" onclick="CalcularRetenciones()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                              </svg> Calcular Retenciones
+                        </button>
+
+                        <button type="button" class="collapse  btn btn-outline-info mt-4 w-100" id="recalcular" onclick="InicializarTabla()">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-calculator" viewBox="0 0 16 16">
+                                <path d="M12 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1zM4 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2z"/>
+                                <path d="M4 2.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5zm0 4a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm3-6a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5zm0 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5z"/>
+                              </svg> Realizar Otro Calculo
+                        </button>
+                        
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="tabla-salarios" class="table table-bordered table-striped mt-3">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Parametros</th>
+                                    <th>Mensual</th>
+                                    <th>Quincenal</th>
+                                </tr>
+                            </thead>
+                            <tbody class="table-dark text-light">
+                                <tr>
+                                    <td>Salario</td>
+                                    <td><span id="tdMesSalary"></span></td>
+                                    <td><span id="tdQuinceSalary"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>ISSS</td>
+                                    <td><span id="tdMesISSS"></span></td>
+                                    <td><span id="tdQuinceISSS"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>AFP</td>
+                                    <td><span id="tdMesAFP"></span></td>
+                                    <td><span id="tdQuinceAFP"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Salario - AFP</td>
+                                    <td><span id="tdMesAFPs"></span></td>
+                                    <td><span id="tdQuinceAFPs"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Impuesto sobre la renta</td>
+                                    <td><span id="tdMesRent"></span></td>
+                                    <td><span id="tdQuinceRent"></span></td>
+                                </tr>
+                                <tr>
+                                    <td>Total Retenciones</td>
+                                    <td><span id="tdMesRetentions"></span></td>
+                                    <td><span id="tdQuinceRententions"></span></td>
+                                </tr>
+                            </tbody>
+                            <tfoot class="table-light text-dark">
+                                <tr>
+                                    <th>Salario Neto:</th>
+                                    <th class="total"><span id="tdMesSalarioNeto"></span></th>
+                                    <th class="total"><span id="tdQuinceSalarioNeto"></span></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        
+
+
+
+                    </div>
+                </div>
+
+                <div class="row mt-2">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div id="msjAlert" role="alert">
+                        </div>
+                    </div>
+                </div>
+    </div>
+    <footer id="footer-placeholder" class="footer text-muted">
+    </footer>
+</body>
+
+</html>
