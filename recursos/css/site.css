@@ -51,6 +51,51 @@ body {
   color: #422006;
 }
 
+.text-gray-50 {
+  color: #f9fafb;
+}
+
+.text-gray-100 {
+  color: #f3f4f6;
+}
+
+.text-gray-200 {
+  color: #e5e7eb;
+}
+
+.text-gray-300 {
+  color: #d1d5db;
+}
+
+.text-gray-400 {
+  color: #9ca3af;
+}
+
+.text-gray-500 {
+  color: #6b7280;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.text-gray-800 {
+  color: #1f2937;
+}
+
+.text-gray-900 {
+  color: #111827;
+}
+
+.text-gray-950 {
+  color: #0f172a;
+}
+
+
 .bg-gray-50 {
   background-color: #f9fafb;
 }
