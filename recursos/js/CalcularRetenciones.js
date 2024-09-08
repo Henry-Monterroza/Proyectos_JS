@@ -49,23 +49,12 @@ function CalcularRetenciones() {
    
 
     // Calcula retenciones mensuales y quincenales
-    let MesAfp = CalculateAFP(salary);
-    let MesIsss = CalculateISSS(salary);
-    let MesNetSalary = salary - MesAfp;
-    let MesRent = CalculateRent(MesNetSalary - MesIsss);
-
-
-    // Redondeamos Justo despues de calcular
-    MesAfp = parseFloat(MesAfp.toFixed(2));
-    MesIsss = parseFloat(MesIsss.toFixed(2));
-    MesNetSalary = parseFloat(MesNetSalary.toFixed(2));
-    MesRent = parseFloat(MesRent.toFixed(2));
-  //  MesTotalRetentions = parseFloat(MesTotalRetentions.toFixed(2));
- //   MesSalary = parseFloat(MesSalary.toFixed(2));
-
-
-    let MesTotalRetentions = MesAfp + MesIsss + MesRent;
-    let MesSalary = salary - MesTotalRetentions;
+    const MesAfp = CalculateAFP(salary);
+    const MesIsss = CalculateISSS(salary);
+    const MesNetSalary = salary - MesAfp;
+    const MesRent = CalculateRent(MesNetSalary - MesIsss);
+    const MesTotalRetentions = MesAfp + MesIsss + MesRent;
+    const MesSalary = salary - MesTotalRetentions;
 
     // Calcula valores quincenales
     const QuinceSalary = MesSalary / 2;
