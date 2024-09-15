@@ -71,16 +71,16 @@ $("#exportBtn").click(async function () {
             var objson = ElectronicArray[i];
             let obj = {
                 // "Correlativo": `${i + 1}`,
+                // "NumeroSerie": objson.selloRecibido || objson.respuestaHacienda.selloRecibido || "No se encontro",
+                // "CreditoFiscal": 0.0,
                 "FechaEmision": objson.identificacion.fecEmi,
                 "NumeroUnicoComprobante": objson.identificacion.codigoGeneracion,
                 "NumeroComprobante": objson.identificacion.numeroControl,
                 "NRC": objson.emisor.nrc,
-                // "NumeroSerie": objson.selloRecibido || objson.respuestaHacienda.selloRecibido || "No se encontro",
                 "NIT": objson.emisor.nit,
                 "NombreProveedor": objson.emisor.nombre,
                 "ComprasExentaInterna": objson.resumen.totalExenta,
                 "ComprasGrabadasInterna": objson.resumen.totalGravada,
-                // "CreditoFiscal": 0.0,
                 "IVA": (objson.resumen.tributos.find(tributo => tributo.codigo === "20") || {}).valor || "No IVA",
                 "SubTotal": objson.resumen.subTotal,
                 "TotalCompras": objson.resumen.montoTotalOperacion,

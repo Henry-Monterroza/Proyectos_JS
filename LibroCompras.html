@@ -65,33 +65,23 @@
         <div class="row mt-2">
             <div class="col-md-12">
                 <ul>
-                    <li><strong>Fecha de Emisión:</strong> Extraído del campo <code>fecEmi</code> en el objeto
-                        <code>identificacion</code> del JSON.</li>
-                    <li><strong>Código de Generación:</strong> Extraído del campo <code>codigoGeneracion</code> en el
-                        objeto <code>identificacion</code> del JSON.</li>
-                    <li><strong>Número de Control:</strong> Extraído del campo <code>numeroControl</code> en el objeto
-                        <code>identificacion</code> del JSON.</li>
-                    <li><strong>NRC:</strong> Extraído del campo <code>nrc</code> en el objeto <code>emisor</code> del
-                        JSON.</li>
-                    <li><strong>NIT:</strong> Extraído del campo <code>nit</code> en el objeto <code>emisor</code> del
-                        JSON.</li>
-                    <li><strong>Nombre del Proveedor:</strong> Extraído del campo <code>nombre</code> en el objeto
-                        <code>emisor</code> del JSON.</li>
-                    <li><strong>Total Exento:</strong> Extraído del campo <code>totalExenta</code> en el objeto
-                        <code>resumen</code> del JSON.</li>
-                    <li><strong>Total Gravado:</strong> Extraído del campo <code>totalGravada</code> en el objeto
-                        <code>resumen</code> del JSON.</li>
-                    <li><strong>IVA:</strong> Buscando en el array <code>tributos</code> con el código <code>20</code>
-                        en el objeto <code>resumen</code> del JSON.</li>
-                    <li><strong>Subtotal:</strong> Extraído del campo <code>subTotal</code> en el objeto
-                        <code>resumen</code> del JSON.</li>
-                    <li><strong>Total de Compras:</strong> Extraído del campo <code>montoTotalOperacion</code> en el
-                        objeto <code>resumen</code> del JSON.</li>
-                    <li><strong>Compras Sujetos Excluidos:</strong> Extraído del campo <code>descuNoSuj</code> en el
-                        objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>Fecha de Emisión:</strong> Extraído del campo <code>fecEmi</code> en el objeto <code>identificacion</code> del JSON.</li>
+                    <li><strong>DTE:</strong> Extraído del campo <code>tipoDte</code> en el objeto <code>identificacion</code> del JSON.</li>
+                    <li><strong>DTE Descripción:</strong> Generado por la función <code>GetDesDTE()</code>, que recibe el valor del campo <code>tipoDte</code> en el objeto <code>identificacion</code> del JSON.</li>
+                    <li><strong>Código de Generación:</strong> Extraído del campo <code>codigoGeneracion</code> en el objeto <code>identificacion</code> del JSON.</li>
+                    <li><strong>Número de Control:</strong> Extraído del campo <code>numeroControl</code> en el objeto <code>identificacion</code> del JSON.</li>
+                    <li><strong>NRC:</strong> Extraído del campo <code>nrc</code> en el objeto <code>emisor</code> del JSON.</li>
+                    <li><strong>NIT:</strong> Extraído del campo <code>nit</code> en el objeto <code>emisor</code> del JSON.</li>
+                    <li><strong>Nombre del Proveedor:</strong> Extraído del campo <code>nombre</code> en el objeto <code>emisor</code> del JSON.</li>
+                    <li><strong>Total Exento:</strong> Extraído del campo <code>totalExenta</code> en el objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>Total Gravado:</strong> Extraído del campo <code>totalGravada</code> en el objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>IVA:</strong> Buscado en el array <code>tributos</code> con el código <code>20</code> en el objeto <code>resumen</code> del JSON. Si no se encuentra, se devuelve <code>"0"</code>.</li>
+                    <li><strong>Subtotal:</strong> Extraído del campo <code>subTotal</code> en el objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>Total de Compras:</strong> Extraído del campo <code>montoTotalOperacion</code> en el objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>Descuento No Sujeto:</strong> Extraído del campo <code>descuNoSuj</code> en el objeto <code>resumen</code> del JSON.</li>
+                    <li><strong>Sello Recibido:</strong> Extraído usando la función <code>GetSelloRecibido()</code>, que busca el campo <code>selloRecibido</code> en varios objetos del JSON.</li>
                 </ul>
-
-
+                
             </div>
         </div>
 
