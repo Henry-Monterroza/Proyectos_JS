@@ -139,34 +139,35 @@ $(document).ready(function () {
     }
 
 
-    function GetDesDTE(codigoDTE) {
-        switch (codigoDTE) {
-            case '01':
-                return 'Factura Electrónica';
-            case '02':
-                return 'Factura de Exportación';
-            case '03':
-                return 'Comprobante de Liquidación';
-            case '04':
-                return 'Comprobante de Retención';
-            case '05':
-                return 'Comprobante de Crédito Fiscal';
-            case '06':
-                return 'Documento Contable de Liquidación';
-            case '07':
-                return 'Nota de Remisión';
-            case '08':
-                return 'Nota de Débito';
-            case '09':
-                return 'Nota de Crédito';
-            case '10':
-                return 'Factura Sujeto Excluido';
-            case '11':
-                return 'Comprobante de Donación';
-            default:
-                return 'Código DTE no Identificado';
-        }
+function GetDesDTE(codigoDTE) {
+    switch (codigoDTE) {
+        case '01':
+            return 'FACTURA';
+        case '03':
+            return 'COMPROBANTE DE CRÉDITO FISCAL';
+        case '04':
+            return 'NOTA DE REMISIÓN';
+        case '05':
+            return 'NOTA DE CRÉDITO';
+        case '06':
+            return 'NOTA DE DÉBITO';
+        case '07':
+            return 'COMPROBANTE DE RETENCIÓN';
+        case '08':
+            return 'COMPROBANTE DE LIQUIDACIÓN';
+        case '09':
+            return 'DOCUMENTO CONTABLE DE LIQUIDACIÓN';
+        case '11':
+            return 'FACTURA DE EXPORTACIÓN';
+        case '14':
+            return 'FACTURA DE SUJETO EXCLUIDO';
+        case '15':
+            return 'COMPROBANTE DE DONACIÓN';
+        default:
+            return 'CÓDIGO DTE NO IDENTIFICADO';
     }
+}
+
     
 
     // Inicializar los campos y botones al cargar la página
